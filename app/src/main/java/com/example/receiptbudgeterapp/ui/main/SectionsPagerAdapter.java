@@ -1,6 +1,7 @@
 package com.example.receiptbudgeterapp.ui.main;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -25,12 +26,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
+        Log.e("wow", "this shit is retarded");
     }
 
     @Override
     public Fragment getItem(int position){
         Fragment fragment = null;
-
+        Log.e("wow", "switching tabs now, jesus");
         switch (position)
         {
             case 0:
