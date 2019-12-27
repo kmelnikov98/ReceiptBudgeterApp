@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Receipt Budget</string>
+    <string name="tab_text_1">Finance</string>
+    <string name="tab_text_2">Income</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_income">Income</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_finance">Finance</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+</resources>
