@@ -88,14 +88,14 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        Button button = findViewById(R.id.button);
-        this.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkPermission();
-                updateFragment();
-            }
-        });
+//        Button button = findViewById(R.id.button);
+//        this.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                checkPermission();
+//                updateFragment();
+//            }
+//        });
     }
 
     private void checkPermission() {
@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity
         this.sendBroadcast(mediaScanIntent);
     }
 
-    private void updateFragment()
+    private void updateFragment(String totalCost)
     {
             Fragment fragment = getSupportFragmentManager().getFragments().get(0);
 
@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity
 
             else if(fragment instanceof FinanceFragment)
             {
-                ((FinanceFragment)fragment).Add();
+                ((FinanceFragment)fragment).Add(totalCost);
             }
 
     }
@@ -220,6 +220,7 @@ public class MainActivity extends AppCompatActivity
             options.inSampleSize = 6;
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, options);
             String result = this.getText(bitmap);
+            updateFragment(result);
             textView.setText(result);
         }catch (Exception e){
             Log.e(TAG, e.getMessage());

@@ -6,4 +6,9 @@ public class ReceiptFactory implements IReceiptFactory
     {
         return new Receipt();
     }
+
+    public IReceipt Create(String totalCost)
+    {
+        return new Receipt(totalCost);
+    }
 }

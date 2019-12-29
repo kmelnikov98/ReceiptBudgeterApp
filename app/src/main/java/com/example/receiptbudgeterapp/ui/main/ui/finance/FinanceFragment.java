@@ -55,9 +55,9 @@ public class FinanceFragment extends Fragment
         return root;
     }
 
-    public void Add()
+    public void Add(String totalCost)
     {
-        receiptList.add(mReceiptFactory.Create());
+        receiptList.add(mReceiptFactory.Create(totalCost));
         //make a receipt a parcelable object! then, pass it into here
         listAdapter.notifyDataSetChanged();
     }
