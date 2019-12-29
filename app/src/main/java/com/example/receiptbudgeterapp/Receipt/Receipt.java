@@ -15,7 +15,7 @@ public class Receipt implements IReceipt, Parcelable
 
     public Receipt(String totalCost)
     {
-        mReceiptName = totalCost;
+        mReceiptCost = totalCost;
     }
 
     public String getReceiptCost()
