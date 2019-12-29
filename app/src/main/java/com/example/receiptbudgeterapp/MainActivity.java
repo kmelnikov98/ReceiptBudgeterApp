@@ -40,6 +40,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity
@@ -237,10 +238,23 @@ public class MainActivity extends AppCompatActivity
         String retStr = "No result";
         try{
             retStr = tessBaseAPI.getUTF8Text();
+            String[] words = retStr.split("\\s+");
+            for (int i = 0; i < words.length; i++) {
+                // You may want to check for a non-word character before blindly
+                // performing a replacement
+                // It may also be necessary to adjust the character class
+                words[i] = words[i].replaceAll("\\s+", "");
+                if (words[i].indexOf('$') != -1){
+                    System.out.println(words[i]);
+                }
+            }
+            System.out.println(Arrays.toString(words));
         }catch (Exception e){
             Log.e(TAG, e.getMessage());
         }
         tessBaseAPI.end();
+
+
         return retStr;
     }
 
