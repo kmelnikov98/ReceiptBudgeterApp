@@ -234,6 +234,7 @@ public class MainActivity extends AppCompatActivity
         tessBaseAPI.init(dataPath, "eng");
         tessBaseAPI.setImage(bitmap);
         String retStr = "No result";
+        String ret = "";
         try{
             retStr = tessBaseAPI.getUTF8Text();
             String[] words = retStr.split("\\s+");
@@ -244,6 +245,7 @@ public class MainActivity extends AppCompatActivity
                 words[i] = words[i].replaceAll("\\s+", "");
                 if (words[i].indexOf('$') != -1){
                     System.out.println(words[i]);
+                    ret = words[i];
                 }
             }
             System.out.println(Arrays.toString(words));
@@ -253,7 +255,7 @@ public class MainActivity extends AppCompatActivity
         tessBaseAPI.end();
 
 
-        return retStr;
+        return ret;
     }
 
 //    @Override
