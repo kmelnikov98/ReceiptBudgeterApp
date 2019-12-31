@@ -36,10 +36,10 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         switch (position)
         {
             case 0:
-                fragment = new FinanceFragment();
+                fragment = FinanceFragment.newInstance();
                 break;
             case 1:
-                fragment = new FinanceDisplayFragment();
+                fragment = FinanceDisplayFragment.newInstance();
                 break;
         }
         return fragment;

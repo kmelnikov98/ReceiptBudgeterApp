@@ -55,4 +55,9 @@ public class FinanceFragment extends Fragment
         financeViewModel.CalculateTotalCost();
         listAdapter.notifyDataSetChanged();
     }
+
+    public static FinanceFragment newInstance() {
+        FinanceFragment f = new FinanceFragment();
+        return f;
+    }
 }
