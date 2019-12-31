@@ -36,8 +36,9 @@ public class FinanceDisplayFragment extends Fragment
                 "Great for shoes",
                 "Scary."
         };
-
-//        FinanceViewModel.getText().observe(this, new Observer<String>() {
+        //use this below method for writing the total amount of the receipts
+        //TextView textView = root.findViewById(R.id.text_share);
+//        FinanceViewModel.GetExpenseText().observe(this, new Observer<Float>() {
 //            @Override
 //            public void onChanged(@Nullable String s) {
 //                textView.setText(s);
@@ -52,5 +53,10 @@ public class FinanceDisplayFragment extends Fragment
         listView.setAdapter(listAdapter);
 
         return root;
+    }
+
+    public static FinanceDisplayFragment newInstance() {
+        FinanceDisplayFragment f = new FinanceDisplayFragment();
+        return f;
     }
 }

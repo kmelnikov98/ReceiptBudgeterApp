@@ -40,11 +40,14 @@
         <Button
             android:id="@+id/ReceiptDeleteButtonID"
             android:layout_width="41dp"
+            android:background="@android:color/transparent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:text="X" />
+            android:layout_marginRight="5dp"
+            android:textSize="28dp"
+            android:text="x" />
 
     </RelativeLayout>
 </LinearLayout>

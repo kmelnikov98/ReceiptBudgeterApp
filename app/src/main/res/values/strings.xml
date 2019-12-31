@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Receipt Budget</string>
+    <string name="app_name">Receipt Budgeter</string>
     <string name="tab_text_1">Finance</string>
     <string name="tab_text_2">Income</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

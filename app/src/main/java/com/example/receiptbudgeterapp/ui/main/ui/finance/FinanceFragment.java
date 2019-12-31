@@ -33,8 +33,8 @@ public class FinanceFragment extends Fragment
 * References the correct item by its Id.*/
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
-
+            ViewGroup container, Bundle savedInstanceState)
+    {
         mReceiptFactory = new ReceiptFactory();
         Activity context = getActivity();
 
@@ -48,7 +48,8 @@ public class FinanceFragment extends Fragment
         return root;
     }
 
-    public void Add(String totalCost){
+    public void Add(String totalCost)
+    {
         mReceiptCount++;
         financeViewModel.GetReceipts().add(mReceiptFactory.Create(totalCost, Integer.toString(mReceiptCount)));
         financeViewModel.CalculateTotalCost();

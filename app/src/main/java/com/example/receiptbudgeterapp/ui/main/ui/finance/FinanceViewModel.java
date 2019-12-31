@@ -26,6 +26,7 @@ public class FinanceViewModel extends ViewModel
     }
 
     public void CalculateTotalCost() {
+
         float totalExpenses = 0;
 
         for(int i = 0; i < mReceiptList.size(); i++)
@@ -36,7 +37,8 @@ public class FinanceViewModel extends ViewModel
         mIncomeData.SetExpenses(totalExpenses);
     }
 
-    public LiveData<Float> GetExpenseText(){
+    public LiveData<Float> GetExpenseText()
+    {
         return mExpenseText;
     }
 }
