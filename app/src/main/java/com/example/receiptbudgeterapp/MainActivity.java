@@ -76,9 +76,6 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        textView = (TextView) this.findViewById(R.id.textView);
-
-
         final Activity activity = this;
         this.findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,7 +218,7 @@ public class MainActivity extends AppCompatActivity
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, options);
             String result = this.getText(bitmap);
             updateFragment(result);
-            textView.setText(result);
+            //textView.setText(result);
         }catch (Exception e){
             Log.e(TAG, e.getMessage());
         }

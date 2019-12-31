@@ -11,7 +11,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.receiptbudgeterapp.R;
 import com.example.receiptbudgeterapp.ui.main.ui.finance.FinanceFragment;
-import com.example.receiptbudgeterapp.ui.main.ui.income.IncomeFragment;
+import com.example.receiptbudgeterapp.ui.main.ui.finance.FinanceDisplayFragment;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -39,7 +39,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 fragment = new FinanceFragment();
                 break;
             case 1:
-                fragment = new IncomeFragment();
+                fragment = new FinanceDisplayFragment();
                 break;
         }
         return fragment;

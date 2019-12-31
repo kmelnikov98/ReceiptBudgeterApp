@@ -18,6 +18,13 @@ public class Receipt implements IReceipt, Parcelable
         mReceiptCost = totalCost;
     }
 
+    public Receipt(String totalCost, String receiptCount)
+    {
+        mReceiptCost = totalCost;
+        mReceiptName = "Receipt " + receiptCount;
+    }
+
+
     public String getReceiptCost()
     {
         return mReceiptCost;
@@ -25,7 +32,6 @@ public class Receipt implements IReceipt, Parcelable
 
     public String getReceiptName()
     {
-        mReceiptName = "Receipt";
         return mReceiptName;
     }
 

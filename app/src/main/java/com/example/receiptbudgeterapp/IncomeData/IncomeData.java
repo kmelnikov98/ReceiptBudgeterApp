@@ -1,21 +1,27 @@
 package com.example.receiptbudgeterapp.IncomeData;
 
-import com.example.receiptbudgeterapp.Receipt.IReceipt;
-
-import java.util.List;
-
 public class IncomeData implements IIncomeData
 {
-    List<IReceipt> receiptList;
+    private float mTotalExpenses;
+    private float mUserIncome;
 
     public IncomeData()
     {
 
     }
-    public double GetIncomeData()
+
+    public float GetIncomeData()
     {
-        return 37.48;
+        return mUserIncome;
     }
 
+    public float GetExpenses()
+    {
+        return mTotalExpenses;
+    }
 
+    public void SetExpenses(float expense)
+    {
+        mTotalExpenses = expense;
+    }
 }

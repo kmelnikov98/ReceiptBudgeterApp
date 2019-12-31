@@ -11,4 +11,9 @@ public class ReceiptFactory implements IReceiptFactory
     {
         return new Receipt(totalCost);
     }
+
+    public IReceipt Create(String totalCost, String receiptCount)
+    {
+        return new Receipt(totalCost, receiptCount);
+    }
 }

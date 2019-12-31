@@ -1,4 +1,4 @@
-package com.example.receiptbudgeterapp.ui.main.ui.income;
+package com.example.receiptbudgeterapp.ui.main.ui.finance;
 
 
 import android.app.Activity;
@@ -9,15 +9,17 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.receiptbudgeterapp.R;
 import com.example.receiptbudgeterapp.ui.main.Misc.IncomeListAdapter;
 
-public class IncomeFragment extends Fragment
+public class FinanceDisplayFragment extends Fragment
 {
-    private IncomeViewModel incomeViewModel;
+    private FinanceViewModel incomeViewModel;
     ListView listView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,19 +37,20 @@ public class IncomeFragment extends Fragment
                 "Scary."
         };
 
+//        FinanceViewModel.getText().observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(@Nullable String s) {
+//                textView.setText(s);
+//            }
+//        });
         incomeViewModel =
-                ViewModelProviders.of(this).get(IncomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_income, container, false); //fragment home is the UI of home page.
+                ViewModelProviders.of(getActivity()).get(FinanceViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_finance_display, container, false); //fragment home is the UI of home page.
 
         IncomeListAdapter listAdapter = new IncomeListAdapter(context, nameArray, infoArray);
         listView = (ListView) root.findViewById(R.id.listviewID);
         listView.setAdapter(listAdapter);
 
         return root;
-    }
-
-    public void UpdateView()
-    {
-
     }
 }

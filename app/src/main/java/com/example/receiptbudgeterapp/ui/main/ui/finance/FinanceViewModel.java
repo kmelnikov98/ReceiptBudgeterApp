@@ -1,36 +1,42 @@
 package com.example.receiptbudgeterapp.ui.main.ui.finance;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.receiptbudgeterapp.IncomeData.IIncomeData;
+import com.example.receiptbudgeterapp.IncomeData.IncomeData;
 import com.example.receiptbudgeterapp.Receipt.IReceipt;
-import com.example.receiptbudgeterapp.Receipt.IReceiptFactory;
-import com.example.receiptbudgeterapp.Receipt.ReceiptFactory;
 
 import java.util.ArrayList;
 
 public class FinanceViewModel extends ViewModel
 {
-    public ArrayList<IReceipt> receiptList;
-    private IReceipt mFinanceData;
-    private IReceiptFactory mFinanceDataFactory;
+    private ArrayList<IReceipt> mReceiptList;
+    private MutableLiveData<Float> mExpenseText;
+    private IIncomeData mIncomeData;
 
-    public FinanceViewModel() //here data is saved on app destruction(some local file)
-            //from there, we pass to fragment, and fragment calls adapter(assuming data is not null)
-    {
-        receiptList = new ArrayList<>();
-        mFinanceDataFactory = new ReceiptFactory();
+    public FinanceViewModel() {
+        mReceiptList = new ArrayList<>();
+        mIncomeData = new IncomeData();
+        mExpenseText = new MutableLiveData<>(mIncomeData.GetExpenses());
     }
 
-
-    public ArrayList<IReceipt> GetList()
-    {
-        return receiptList;
+    public ArrayList<IReceipt> GetReceipts(){
+        return mReceiptList;
     }
 
-    public void SetList(ArrayList<IReceipt> list)
-    {
-        if(list != null)
+    public void CalculateTotalCost() {
+        float totalExpenses = 0;
+
+        for(int i = 0; i < mReceiptList.size(); i++)
         {
-            receiptList = list;
+            totalExpenses = totalExpenses + Float.parseFloat(mReceiptList.get(i).getReceiptCost());
         }
+
+        mIncomeData.SetExpenses(totalExpenses);
+    }
+
+    public LiveData<Float> GetExpenseText(){
+        return mExpenseText;
     }
 }

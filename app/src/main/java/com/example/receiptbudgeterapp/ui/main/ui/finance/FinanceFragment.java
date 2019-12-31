@@ -24,47 +24,34 @@ import java.util.ArrayList;
 public class FinanceFragment extends Fragment
 {
     private FinanceViewModel financeViewModel;
-    private Bundle savedState = null;
-    private IncomeData mIncomeData;
     private ListView listView;
     ReceiptListAdapter listAdapter;
-    private ArrayList <IReceipt> receiptList;
     private IReceiptFactory mReceiptFactory;
+    private int mReceiptCount = 0;
 
 /*OnCreateView, essentially creates the items, like the textViews, and so on.
 * References the correct item by its Id.*/
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState)
-    {
+            ViewGroup container, Bundle savedInstanceState) {
+
         mReceiptFactory = new ReceiptFactory();
-        mIncomeData = new IncomeData();
-        receiptList = new ArrayList<IReceipt>();
         Activity context = getActivity();
 
-        Log.e("wow", "this is dogshit");
-
-
         financeViewModel =
-                ViewModelProviders.of(this).get(FinanceViewModel.class);
+                ViewModelProviders.of(getActivity()).get(FinanceViewModel.class);
         View root = inflater.inflate(R.layout.fragment_finance, container, false);
 
-        listAdapter = new ReceiptListAdapter(context, receiptList);
+        listAdapter = new ReceiptListAdapter(context, financeViewModel.GetReceipts());
         listView = (ListView) root.findViewById(R.id.receipt_list_view_ID);
         listView.setAdapter(listAdapter);
         return root;
     }
 
-    public void Add(String totalCost)
-    {
-        receiptList.add(mReceiptFactory.Create(totalCost));
-        //make a receipt a parcelable object! then, pass it into here
+    public void Add(String totalCost){
+        mReceiptCount++;
+        financeViewModel.GetReceipts().add(mReceiptFactory.Create(totalCost, Integer.toString(mReceiptCount)));
+        financeViewModel.CalculateTotalCost();
         listAdapter.notifyDataSetChanged();
     }
-
-    private void ImportReceipts_()
-    {
-        receiptList = financeViewModel.GetList();
-    }
-
 }
