@@ -220,7 +220,6 @@ public class MainActivity extends AppCompatActivity
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoPath, options);
             String result = this.getText(bitmap);
             updateFragment(result);
-            //textView.setText(result);
         }catch (Exception e){
             Log.e(TAG, e.getMessage());
         }

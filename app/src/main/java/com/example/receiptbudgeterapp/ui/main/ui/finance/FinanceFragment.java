@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class FinanceFragment extends Fragment
 {
-    private FinanceViewModel financeViewModel;
+    private FinanceViewModel mFinanceViewModel;
     private ListView listView;
     ReceiptListAdapter listAdapter;
     private IReceiptFactory mReceiptFactory;
@@ -32,17 +32,22 @@ public class FinanceFragment extends Fragment
 /*OnCreateView, essentially creates the items, like the textViews, and so on.
 * References the correct item by its Id.*/
 
+    public static FinanceFragment newInstance() {
+        FinanceFragment f = new FinanceFragment();
+        return f;
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState)
     {
         mReceiptFactory = new ReceiptFactory();
         Activity context = getActivity();
 
-        financeViewModel =
+        mFinanceViewModel =
                 ViewModelProviders.of(getActivity()).get(FinanceViewModel.class);
         View root = inflater.inflate(R.layout.fragment_finance, container, false);
 
-        listAdapter = new ReceiptListAdapter(context, financeViewModel.GetReceipts());
+        listAdapter = new ReceiptListAdapter(context, mFinanceViewModel.GetReceipts());
         listView = (ListView) root.findViewById(R.id.receipt_list_view_ID);
         listView.setAdapter(listAdapter);
         return root;
@@ -51,13 +56,8 @@ public class FinanceFragment extends Fragment
     public void Add(String totalCost)
     {
         mReceiptCount++;
-        financeViewModel.GetReceipts().add(mReceiptFactory.Create(totalCost, Integer.toString(mReceiptCount)));
-        financeViewModel.CalculateTotalCost();
+        mFinanceViewModel.GetReceipts().add(mReceiptFactory.Create(totalCost, Integer.toString(mReceiptCount)));
+        mFinanceViewModel.CalculateTotalCost();
         listAdapter.notifyDataSetChanged();
-    }
-
-    public static FinanceFragment newInstance() {
-        FinanceFragment f = new FinanceFragment();
-        return f;
     }
 }

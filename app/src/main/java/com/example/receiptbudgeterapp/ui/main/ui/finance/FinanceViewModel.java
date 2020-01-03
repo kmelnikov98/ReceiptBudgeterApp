@@ -18,7 +18,7 @@ public class FinanceViewModel extends ViewModel
     public FinanceViewModel() {
         mReceiptList = new ArrayList<>();
         mIncomeData = new IncomeData();
-        mExpenseText = new MutableLiveData<>(mIncomeData.GetExpenses());
+        mExpenseText = new MutableLiveData<>(mIncomeData.getExpenses());
     }
 
     public ArrayList<IReceipt> GetReceipts(){
@@ -34,10 +34,10 @@ public class FinanceViewModel extends ViewModel
             totalExpenses = totalExpenses + Float.parseFloat(mReceiptList.get(i).getReceiptCost());
         }
 
-        mIncomeData.SetExpenses(totalExpenses);
+        mIncomeData.setExpenses(totalExpenses);
     }
 
-    public LiveData<Float> GetExpenseText()
+    public LiveData<Float> getExpenseText()
     {
         return mExpenseText;
     }

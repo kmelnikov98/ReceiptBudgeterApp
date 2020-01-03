@@ -2,7 +2,7 @@ package com.example.receiptbudgeterapp.IncomeData;
 
 public interface IIncomeData
 {
-    float GetExpenses();
-    float GetIncomeData();
-    void SetExpenses(float expenses);
+    float getExpenses();
+    float getIncomeData();
+    void setExpenses(float expenses);
 }

@@ -4,23 +4,29 @@ public class IncomeData implements IIncomeData
 {
     private float mTotalExpenses;
     private float mUserIncome;
-
+    
     public IncomeData()
     {
 
     }
 
-    public float GetIncomeData()
+    public IncomeData(float income, float expenses)
+    {
+        mUserIncome = income;
+        mTotalExpenses = expenses;
+    }
+
+    public float getIncomeData()
     {
         return mUserIncome;
     }
 
-    public float GetExpenses()
+    public float getExpenses()
     {
         return mTotalExpenses;
     }
 
-    public void SetExpenses(float expense)
+    public void setExpenses(float expense)
     {
         mTotalExpenses = expense;
     }
