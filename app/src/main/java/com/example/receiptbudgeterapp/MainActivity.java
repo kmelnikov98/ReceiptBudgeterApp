@@ -42,6 +42,8 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -234,6 +236,9 @@ public class MainActivity extends AppCompatActivity
         tessBaseAPI.init(dataPath, "eng");
         tessBaseAPI.setImage(bitmap);
         String retStr = "No result";
+        String ret = "";
+        String pattern = "^.*?(\\d+\\.?\\d*).*$";
+        Pattern mrPattern = Pattern.compile(pattern);
         try{
             retStr = tessBaseAPI.getUTF8Text();
             String[] words = retStr.split("\\s+");
@@ -244,6 +249,7 @@ public class MainActivity extends AppCompatActivity
                 words[i] = words[i].replaceAll("\\s+", "");
                 if (words[i].indexOf('$') != -1){
                     System.out.println(words[i]);
+                    ret = words[i];
                 }
             }
             System.out.println(Arrays.toString(words));
@@ -252,8 +258,17 @@ public class MainActivity extends AppCompatActivity
         }
         tessBaseAPI.end();
 
+        if (ret != ""){
+            Matcher m = mrPattern.matcher(ret);
 
-        return retStr;
+            if (m.find()) {
+                ret = m.group(1);
+                System.out.println(ret);
+                return ret;
+            }
+        }
+
+        return ret;
     }
 
 //    @Override
