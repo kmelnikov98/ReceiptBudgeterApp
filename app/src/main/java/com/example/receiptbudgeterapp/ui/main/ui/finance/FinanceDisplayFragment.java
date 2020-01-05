@@ -56,9 +56,9 @@ public class FinanceDisplayFragment extends Fragment
 //            }
 //        });
 
-        IncomeListAdapter listAdapter = new IncomeListAdapter(getActivity(), nameArray, infoArray);
-        listView = (ListView) root.findViewById(R.id.listviewID);
-        listView.setAdapter(listAdapter);
+//        IncomeListAdapter listAdapter = new IncomeListAdapter(getActivity(), nameArray, infoArray);
+//        listView = (ListView) root.findViewById(R.id.listviewID);
+//        listView.setAdapter(listAdapter);
 
         return root;
     }
