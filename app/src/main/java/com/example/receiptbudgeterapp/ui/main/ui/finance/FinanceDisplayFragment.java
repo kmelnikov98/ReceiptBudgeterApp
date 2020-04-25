@@ -21,7 +21,7 @@ import com.example.receiptbudgeterapp.ui.main.Misc.IncomeListAdapter;
 public class FinanceDisplayFragment extends Fragment
 {
     private FinanceViewModel mFinanceViewModel;
-    ListView listView;
+    TextView textView;
 
     public static FinanceDisplayFragment newInstance() {
         FinanceDisplayFragment f = new FinanceDisplayFragment();
@@ -29,33 +29,20 @@ public class FinanceDisplayFragment extends Fragment
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState)
-    {
+                             ViewGroup container, Bundle savedInstanceState) {
         mFinanceViewModel =
                 ViewModelProviders.of(getActivity()).get(FinanceViewModel.class);
         View root = inflater.inflate(R.layout.fragment_finance_display, container, false);
 
-
-        String[] nameArray = {"Octopus", "Pig", "Sheep", "Rabbit", "Snake", "Spider"};
-        String[] infoArray = {
-                "8 tentacled monster",
-                "Delicious in rolls",
-                "Great for jumpers",
-                "Nice in a stew",
-                "Great for shoes",
-                "Scary."
-        };
-        //use this below method for writing the total amount of the receipts
-
-
-//        TextView textView = root.findViewById(R.id.text_share);
-//        mFinanceViewModel.GetExpenseText().observe(this, new Observer<Float>() {
+//        textView = root.findViewById(R.id.expensesID);
+//        mFinanceViewModel.getExpenseText().observe(this, new Observer<Float>() {
 //            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
+//            public void onChanged(@Nullable Float s) {
+//                textView.setText(String.valueOf(s));
 //            }
 //        });
 
+       //use this below method for writing the total amount of the receipts
 //        IncomeListAdapter listAdapter = new IncomeListAdapter(getActivity(), nameArray, infoArray);
 //        listView = (ListView) root.findViewById(R.id.listviewID);
 //        listView.setAdapter(listAdapter);

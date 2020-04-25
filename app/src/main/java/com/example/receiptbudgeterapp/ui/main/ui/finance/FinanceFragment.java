@@ -12,9 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.receiptbudgeterapp.IncomeData.IncomeData;
 import com.example.receiptbudgeterapp.R;
-import com.example.receiptbudgeterapp.Receipt.IReceipt;
 import com.example.receiptbudgeterapp.Receipt.IReceiptFactory;
 import com.example.receiptbudgeterapp.Receipt.ReceiptFactory;
 import com.example.receiptbudgeterapp.ui.main.Misc.ReceiptListAdapter;
