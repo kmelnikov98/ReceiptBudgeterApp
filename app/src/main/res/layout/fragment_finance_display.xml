@@ -130,22 +130,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_gravity="top"
             android:layout_weight="1"
-            android:gravity="top"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/budget_debt_repayment"
+                android:text="@string/budget_expenses"
                 android:textSize="20sp"
-                android:textStyle="normal" />
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/expensesID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/expensesID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@string/budget_debt_repayment"
                 android:textSize="20sp"
                 android:textStyle="normal" />
         </RelativeLayout>

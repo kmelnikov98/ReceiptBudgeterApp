@@ -34,18 +34,13 @@ public class FinanceDisplayFragment extends Fragment
                 ViewModelProviders.of(getActivity()).get(FinanceViewModel.class);
         View root = inflater.inflate(R.layout.fragment_finance_display, container, false);
 
-//        textView = root.findViewById(R.id.expensesID);
-//        mFinanceViewModel.getExpenseText().observe(this, new Observer<Float>() {
-//            @Override
-//            public void onChanged(@Nullable Float s) {
-//                textView.setText(String.valueOf(s));
-//            }
-//        });
-
-       //use this below method for writing the total amount of the receipts
-//        IncomeListAdapter listAdapter = new IncomeListAdapter(getActivity(), nameArray, infoArray);
-//        listView = (ListView) root.findViewById(R.id.listviewID);
-//        listView.setAdapter(listAdapter);
+        textView = root.findViewById(R.id.expensesID);
+        mFinanceViewModel.getExpenseText().observe(this, new Observer<Float>() {
+            @Override
+            public void onChanged(@Nullable Float s) {
+                textView.setText(String.valueOf(s));
+            }
+        });
 
         return root;
     }

@@ -34,7 +34,8 @@ public class FinanceViewModel extends ViewModel
             totalExpenses = totalExpenses + Float.parseFloat(mReceiptList.get(i).getReceiptCost());
         }
 
-        mIncomeData.setExpenses(totalExpenses);
+        mIncomeData.setExpenses(totalExpenses); //set value of total expenses (need to save it somewhere)
+        mExpenseText.setValue(totalExpenses); //set value of text
     }
 
     public LiveData<Float> getExpenseText()
