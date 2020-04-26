@@ -9,13 +9,13 @@ import com.example.receiptbudgeterapp.Receipt.IReceipt;
 
 import java.util.ArrayList;
 
-public class FinanceViewModel extends ViewModel
+public class BudgeterViewModel extends ViewModel
 {
     private ArrayList<IReceipt> mReceiptList;
     private MutableLiveData<Float> mExpenseText;
     private IIncomeData mIncomeData;
 
-    public FinanceViewModel() {
+    public BudgeterViewModel() {
         mReceiptList = new ArrayList<>();
         mIncomeData = new IncomeData();
         mExpenseText = new MutableLiveData<>(mIncomeData.getExpenses());

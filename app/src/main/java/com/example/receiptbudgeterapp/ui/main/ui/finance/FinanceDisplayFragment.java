@@ -17,7 +17,7 @@ import com.example.receiptbudgeterapp.R;
 
 public class FinanceDisplayFragment extends Fragment
 {
-    private FinanceViewModel mFinanceViewModel;
+    private BudgeterViewModel mBudgeterViewModel;
     TextView textView;
 
     public static FinanceDisplayFragment newInstance() {
@@ -27,12 +27,12 @@ public class FinanceDisplayFragment extends Fragment
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        mFinanceViewModel =
-                ViewModelProviders.of(getActivity()).get(FinanceViewModel.class);
+        mBudgeterViewModel =
+                ViewModelProviders.of(getActivity()).get(BudgeterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_finance_display, container, false);
 
         textView = root.findViewById(R.id.expensesID);
-        mFinanceViewModel.getExpenseText().observe(this, new Observer<Float>() {
+        mBudgeterViewModel.getExpenseText().observe(this, new Observer<Float>() {
             @Override
             public void onChanged(@Nullable Float s) {
                 String expensesText = "<b>" +  " " +

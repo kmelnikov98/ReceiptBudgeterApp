@@ -2,7 +2,6 @@ package com.example.receiptbudgeterapp.ui.main.ui.finance;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,11 +16,9 @@ import com.example.receiptbudgeterapp.Receipt.IReceiptFactory;
 import com.example.receiptbudgeterapp.Receipt.ReceiptFactory;
 import com.example.receiptbudgeterapp.ui.main.Misc.ReceiptListAdapter;
 
-import java.util.ArrayList;
-
 public class FinanceFragment extends Fragment
 {
-    private FinanceViewModel mFinanceViewModel;
+    private BudgeterViewModel mBudgeterViewModel;
     private ListView listView;
     ReceiptListAdapter listAdapter;
     private IReceiptFactory mReceiptFactory;
@@ -41,11 +38,11 @@ public class FinanceFragment extends Fragment
         mReceiptFactory = new ReceiptFactory();
         Activity context = getActivity();
 
-        mFinanceViewModel =
-                ViewModelProviders.of(getActivity()).get(FinanceViewModel.class);
+        mBudgeterViewModel =
+                ViewModelProviders.of(getActivity()).get(BudgeterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_finance, container, false);
 
-        listAdapter = new ReceiptListAdapter(context, mFinanceViewModel.GetReceipts());
+        listAdapter = new ReceiptListAdapter(context, mBudgeterViewModel.GetReceipts());
         listView = (ListView) root.findViewById(R.id.receipt_list_view_ID);
         listView.setAdapter(listAdapter);
         return root;
@@ -54,8 +51,8 @@ public class FinanceFragment extends Fragment
     public void Add(String totalCost)
     {
         mReceiptCount++;
-        mFinanceViewModel.GetReceipts().add(mReceiptFactory.Create(totalCost, Integer.toString(mReceiptCount)));
-        mFinanceViewModel.CalculateTotalCost();
+        mBudgeterViewModel.GetReceipts().add(mReceiptFactory.Create(totalCost, Integer.toString(mReceiptCount)));
+        mBudgeterViewModel.CalculateTotalCost();
         listAdapter.notifyDataSetChanged();
     }
 }

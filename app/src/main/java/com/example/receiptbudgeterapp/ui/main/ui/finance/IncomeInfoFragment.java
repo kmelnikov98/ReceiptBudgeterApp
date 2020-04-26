@@ -1,6 +1,5 @@
 package com.example.receiptbudgeterapp.ui.main.ui.finance;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,7 @@ import com.example.receiptbudgeterapp.R;
 
 public class IncomeInfoFragment extends Fragment
 {
-    private FinanceViewModel mFinanceViewModel;
+    private BudgeterViewModel mBudgeterViewModel;
 
     public static IncomeInfoFragment newInstance() {
         IncomeInfoFragment f = new IncomeInfoFragment();
@@ -25,8 +24,8 @@ public class IncomeInfoFragment extends Fragment
                              ViewGroup container, Bundle savedInstanceState)
     {
 
-        mFinanceViewModel =
-                ViewModelProviders.of(getActivity()).get(FinanceViewModel.class);
+        mBudgeterViewModel =
+                ViewModelProviders.of(getActivity()).get(BudgeterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_income_info, container, false);
 
         return root;
