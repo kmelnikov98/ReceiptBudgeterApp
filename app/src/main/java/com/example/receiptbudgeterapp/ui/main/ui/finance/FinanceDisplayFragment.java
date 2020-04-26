@@ -1,12 +1,10 @@
 package com.example.receiptbudgeterapp.ui.main.ui.finance;
 
-
-import android.app.Activity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +14,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.receiptbudgeterapp.R;
-import com.example.receiptbudgeterapp.ui.main.Misc.IncomeListAdapter;
 
 public class FinanceDisplayFragment extends Fragment
 {
@@ -38,7 +35,9 @@ public class FinanceDisplayFragment extends Fragment
         mFinanceViewModel.getExpenseText().observe(this, new Observer<Float>() {
             @Override
             public void onChanged(@Nullable Float s) {
-                textView.setText(String.valueOf(s));
+                String expensesText = "<b>" +  " " +
+                        getActivity().getResources().getString(R.string.budget_expenses) +  "</b>" +  "   " +  "$" + s;
+                textView.setText(Html.fromHtml(expensesText));
             }
         });
 
