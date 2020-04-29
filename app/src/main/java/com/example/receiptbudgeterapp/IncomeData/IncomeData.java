@@ -4,6 +4,7 @@ public class IncomeData implements IIncomeData
 {
     private float mTotalExpenses;
     private float mUserIncome;
+    private float mBudgetTotal;
     
     public IncomeData()
     {
@@ -19,6 +20,11 @@ public class IncomeData implements IIncomeData
     {
         mUserIncome = income;
         mTotalExpenses = expenses;
+
+        if(income > expenses)
+        {
+            mBudgetTotal = income - expenses;
+        }
     }
 
     public float getIncomeData()
@@ -39,5 +45,15 @@ public class IncomeData implements IIncomeData
     public void setIncome(float income)
     {
         mUserIncome = income;
+    }
+
+    public float getBudgetTotal()
+    {
+        return mBudgetTotal;
+    }
+
+    public void setBudgetTotal(float total)
+    {
+        mBudgetTotal = total;
     }
 }

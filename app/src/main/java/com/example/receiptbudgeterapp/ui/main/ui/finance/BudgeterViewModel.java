@@ -12,15 +12,24 @@ import java.util.ArrayList;
 public class BudgeterViewModel extends ViewModel
 {
     private ArrayList<IReceipt> mReceiptList;
+    private IIncomeData mIncomeData;
+
     private MutableLiveData<Float> mExpenseText;
     private MutableLiveData<Float> mIncomeText;
-    private IIncomeData mIncomeData;
+    private MutableLiveData<Float> mBudgetText;
+    private MutableLiveData<Float> mWantsText;
+    private MutableLiveData<Float> mNeedsText;
+    private MutableLiveData<Float> mDebtText;
 
     public BudgeterViewModel() {
         mReceiptList = new ArrayList<>();
         mIncomeData = new IncomeData();
         mIncomeText = new MutableLiveData<>(mIncomeData.getIncomeData());
         mExpenseText = new MutableLiveData<>(mIncomeData.getExpenses());
+        mBudgetText = new MutableLiveData<>(mIncomeData.getBudgetTotal());
+        mWantsText = new MutableLiveData<>((float)(mIncomeData.getBudgetTotal()*0.5));
+        mNeedsText = new MutableLiveData<>((float)(mIncomeData.getBudgetTotal()*0.3));
+        mDebtText = new MutableLiveData<>((float)(mIncomeData.getBudgetTotal()*0.2));
     }
 
     public ArrayList<IReceipt> GetReceipts(){
@@ -58,6 +67,25 @@ public class BudgeterViewModel extends ViewModel
         return mIncomeText;
     }
 
+
+    public LiveData<Float> getBudgetText()
+    {
+        return mBudgetText;
+    }
+
+    public void CalculateTotal()
+    {
+        float total = mIncomeData.getIncomeData() - mIncomeData.getExpenses();
+
+        if(total < 0f) //do not want to create a budget of negative values.
+        {
+            total = (float)(0.0);
+        }
+
+        mIncomeData.setBudgetTotal(total);
+        mBudgetText.setValue(total);
+    }
+
     public void setIncomeText(float income)
     {
         mIncomeText.setValue(income);
@@ -66,5 +94,20 @@ public class BudgeterViewModel extends ViewModel
     public void setUserData(float income)
     {
         mIncomeData.setIncome(income);
+    }
+
+    public void setWantsText(float value)
+    {
+        mWantsText.setValue(value);
+    }
+
+    public void setNeedsText(float value)
+    {
+        mNeedsText.setValue(value);
+    }
+
+    public void setDebtsText(float value)
+    {
+        mDebtText.setValue(value);
     }
 }

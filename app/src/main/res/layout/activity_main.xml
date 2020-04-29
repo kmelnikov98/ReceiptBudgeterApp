@@ -11,24 +11,6 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-<!--        <TextView-->
-<!--            android:id="@+id/textView"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="300dp"-->
-<!--            android:text="TextView"-->
-<!--            tools:layout_editor_absoluteX="120dp"-->
-<!--            tools:layout_editor_absoluteY="264dp" />-->
-
-
-<!--        <Button-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Add Receipt"-->
-<!--            android:id="@+id/button"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_alignParentLeft="true"-->
-<!--            android:layout_alignParentStart="true" />-->
-
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
