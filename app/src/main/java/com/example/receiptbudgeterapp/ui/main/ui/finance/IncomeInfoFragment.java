@@ -18,7 +18,6 @@ import com.example.receiptbudgeterapp.R;
 public class IncomeInfoFragment extends Fragment
 {
     private BudgeterViewModel mBudgeterViewModel;
-    static final String TAG = "IncomeInfo";
 
     public static IncomeInfoFragment newInstance() {
         IncomeInfoFragment f = new IncomeInfoFragment();
@@ -44,7 +43,6 @@ public class IncomeInfoFragment extends Fragment
 
             @Override
             public void afterTextChanged(Editable s) {
-                Log.i(TAG, "actually changed, amazing");
                 String incomeText = s.toString();
                 if (incomeText == null || incomeText.equals("")) {
                     incomeText = "0.00";
@@ -54,7 +52,6 @@ public class IncomeInfoFragment extends Fragment
                 mBudgeterViewModel.setIncomeText(Float.parseFloat(incomeText));
             }
         });
-        Log.i(TAG, "was here");
 
         return root;
 

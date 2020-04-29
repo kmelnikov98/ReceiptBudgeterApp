@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:background="@android:color/holo_green_dark"
     android:layout_width="match_parent"
+    android:id="@+id/fragment_finance"
     android:layout_height="match_parent" >
 
     <ListView

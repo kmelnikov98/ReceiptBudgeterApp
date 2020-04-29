@@ -33,7 +33,14 @@ public class BudgeterViewModel extends ViewModel
 
         for(int i = 0; i < mReceiptList.size(); i++)
         {
-            totalExpenses = totalExpenses + Float.parseFloat(mReceiptList.get(i).getReceiptCost());
+            if (mReceiptList.get(i).getReceiptCost() == null
+                    || mReceiptList.get(i).getReceiptCost().equals("")) {
+                totalExpenses = totalExpenses + 0f;
+            }
+            else
+            {
+                totalExpenses = totalExpenses + Float.parseFloat(mReceiptList.get(i).getReceiptCost());
+            }
         }
 
         mIncomeData.setExpenses(totalExpenses); //set value of total expenses (need to save it somewhere)

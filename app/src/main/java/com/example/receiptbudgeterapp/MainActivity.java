@@ -198,18 +198,17 @@ public class MainActivity extends AppCompatActivity
 
     private void updateFragment(String totalCost)
     {
-            Fragment fragment = getSupportFragmentManager().getFragments().get(0);
+        int size = getSupportFragmentManager().getFragments().size();
 
-            if(fragment == null)
-            {
-                return;
-            }
+        for(int i = 0; i < size; i++)
+        {
+            Fragment fragment = getSupportFragmentManager().getFragments().get(i);
 
-            else if(fragment instanceof FinanceFragment)
+            if(fragment instanceof FinanceFragment)
             {
                 ((FinanceFragment)fragment).Add(totalCost);
             }
-
+        }
     }
 
     private void startOCR(Uri imageUri){
