@@ -10,6 +10,11 @@ public class IncomeData implements IIncomeData
 
     }
 
+    public IncomeData(float expenses)
+    {
+        mTotalExpenses = expenses;
+    }
+
     public IncomeData(float income, float expenses)
     {
         mUserIncome = income;

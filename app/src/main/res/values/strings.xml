@@ -22,4 +22,7 @@
     <string name="budget_wants">Wants: </string>
     <string name="budget_debt_repayment">Savings/Debt: </string>
 
+    <string name="total_budget_title">Total</string>
+    <string name="total_budget">Total: </string>
+
 </resources>

@@ -23,7 +23,6 @@ public class IncomeInfoFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState)
     {
-
         mBudgeterViewModel =
                 ViewModelProviders.of(getActivity()).get(BudgeterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_income_info, container, false);
