@@ -41,6 +41,7 @@ public class FinanceDisplayFragment extends Fragment
             }
         });
 
+
         return root;
     }
 }
