@@ -198,9 +198,9 @@ public class MainActivity extends AppCompatActivity
 
     private void updateFragment(String totalCost)
     {
-        int size = getSupportFragmentManager().getFragments().size();
+        int numFragments = getSupportFragmentManager().getFragments().size();
 
-        for(int i = 0; i < size; i++)
+        for(int i = 0; i < numFragments; i++)
         {
             Fragment fragment = getSupportFragmentManager().getFragments().get(i);
 

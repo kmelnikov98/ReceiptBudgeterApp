@@ -11,20 +11,18 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="First Name" />
+            android:text="@string/user_first_name" />
 
         <EditText
-            android:id="@+id/editText3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Last Name" />
+            android:text="@string/user_last_name" />
 
         <EditText
             android:id="@+id/user_income_inputID"

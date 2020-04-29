@@ -51,7 +51,9 @@ public class FinanceDisplayFragment extends Fragment
         mBudgeterViewModel.getIncomeText().observe(this, new Observer<Float>() {
             @Override
             public void onChanged(@Nullable Float s) {
-                incomeText.setText(String.valueOf(s));
+                String incomesText = "<b>" +  " " +
+                        getActivity().getResources().getString(R.string.income_user) +  "</b>" +  "   " +  "$" + s;
+                incomeText.setText(Html.fromHtml(incomesText));
             }
         });
 
