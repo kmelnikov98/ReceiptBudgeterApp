@@ -7,6 +7,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +36,7 @@ public class FinanceDisplayFragment extends Fragment
         mBudgeterViewModel =
                 ViewModelProviders.of(getActivity()).get(BudgeterViewModel.class);
         View root = inflater.inflate(R.layout.fragment_finance_display, container, false);
+        View root_income_info = inflater.inflate(R.layout.fragment_income_info, container, false);
 
         textView = root.findViewById(R.id.expensesID);
         mBudgeterViewModel.getExpenseText().observe(this, new Observer<Float>() {
@@ -48,29 +50,23 @@ public class FinanceDisplayFragment extends Fragment
         });
 
 
-        textView2 = root.findViewById(R.id.income);
         textView3 = root.findViewById(R.id.incomeID);
+        EditText text = (EditText) root_income_info.findViewById(R.id.income);
+        TextWatcher textWatcher = new TextWatcher() {
 
-        textView2.addTextChangedListener(new TextWatcher() {
-            @Override
+            public void afterTextChanged(Editable s) {
+            }
+
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             public void onTextChanged(CharSequence s, int start, int before,
                                       int count) {
-
-//                String incomeText = textView2.getText().toString();
-//                textView3.setText(incomeText);
-
+                String incomeText = textView2.getText().toString();
+                textView3.setText(incomeText);
             }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-
-        });
+        };
+        text.addTextChangedListener(textWatcher);
 
 
 
