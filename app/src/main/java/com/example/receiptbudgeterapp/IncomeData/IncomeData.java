@@ -35,4 +35,9 @@ public class IncomeData implements IIncomeData
     {
         mTotalExpenses = expense;
     }
+
+    public void setIncome(float income)
+    {
+        mUserIncome = income;
+    }
 }

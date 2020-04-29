@@ -13,11 +13,13 @@ public class BudgeterViewModel extends ViewModel
 {
     private ArrayList<IReceipt> mReceiptList;
     private MutableLiveData<Float> mExpenseText;
+    private MutableLiveData<Float> mIncomeText;
     private IIncomeData mIncomeData;
 
     public BudgeterViewModel() {
         mReceiptList = new ArrayList<>();
         mIncomeData = new IncomeData();
+        mIncomeText = new MutableLiveData<>(mIncomeData.getIncomeData());
         mExpenseText = new MutableLiveData<>(mIncomeData.getExpenses());
     }
 
@@ -42,5 +44,20 @@ public class BudgeterViewModel extends ViewModel
     public LiveData<Float> getExpenseText()
     {
         return mExpenseText;
+    }
+
+    public LiveData<Float> getIncomeText()
+    {
+        return mIncomeText;
+    }
+
+    public void setIncomeText(float income)
+    {
+        mIncomeText.setValue(income);
+    }
+
+    public void setUserData(float income)
+    {
+        mIncomeData.setIncome(income);
     }
 }

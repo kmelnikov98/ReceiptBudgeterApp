@@ -5,4 +5,5 @@ public interface IIncomeData
     float getExpenses();
     float getIncomeData();
     void setExpenses(float expenses);
+    void setIncome(float income);
 }
