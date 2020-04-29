@@ -36,6 +36,7 @@ public class BudgeterViewModel extends ViewModel
 
         mIncomeData.setExpenses(totalExpenses); //set value of total expenses (need to save it somewhere)
         mExpenseText.setValue(totalExpenses); //set value of text
+
     }
 
     public LiveData<Float> getExpenseText()
