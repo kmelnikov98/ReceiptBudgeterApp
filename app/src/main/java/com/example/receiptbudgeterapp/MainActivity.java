@@ -235,6 +235,7 @@ public class MainActivity extends AppCompatActivity
         tessBaseAPI.setImage(bitmap);
         String retStr = "No result";
         String ret = "";
+        String ret2 = "";
         String pattern = "^.*?(\\d+\\.?\\d*).*$";
         Pattern mrPattern = Pattern.compile(pattern);
         try{
@@ -248,6 +249,13 @@ public class MainActivity extends AppCompatActivity
                 if (words[i].indexOf('$') != -1){
                     System.out.println(words[i]);
                     ret = words[i];
+                }
+                else {
+                    Matcher m = mrPattern.matcher(words[i]);
+
+                    if (m.find()) {
+                        ret2 = m.group(1);
+                    }
                 }
             }
             System.out.println(Arrays.toString(words));
@@ -266,7 +274,7 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        return ret;
+        return ret2;
     }
 
 //    @Override
